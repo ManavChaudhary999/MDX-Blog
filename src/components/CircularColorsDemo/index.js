@@ -1,2 +1,5 @@
-export * from './CircularColorsDemo';
-export { default } from './CircularColorsDemo';
+import dynamic from "next/dynamic";
+
+const CircularColorsDemoLazy = dynamic(()=> import("./CircularColorsDemo"));
+
+export default CircularColorsDemoLazy;
