@@ -6,7 +6,7 @@ import {
 } from 'next/font/google';
 import clsx from 'clsx';
 
-import { LIGHT_TOKENS, DARK_TOKENS, BLOG_TITLE } from '@/constants';
+import { LIGHT_TOKENS, DARK_TOKENS, BLOG_TITLE, BLOG_DESCRIPTION, COOKIE_COLOR_THEME_NAME } from '@/constants';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -27,11 +27,11 @@ const monoFont = Spline_Sans_Mono({
 
 export const metadata = {
   title: BLOG_TITLE,
-  description: 'A wonderful blog about JavaScript'
+  description: BLOG_DESCRIPTION,
 };
 
 function RootLayout({ children }) {
-  const savedTheme = cookies().get('color-theme');
+  const savedTheme = cookies().get(COOKIE_COLOR_THEME_NAME);
   const theme = savedTheme?.value || 'light';
 
   return (

@@ -1,9 +1,8 @@
-'use client'
 import React from 'react';
 import { Sun, Moon } from 'react-feather';
 import Cookie from 'js-cookie';
 
-import { LIGHT_TOKENS, DARK_TOKENS } from '@/constants';
+import { LIGHT_TOKENS, DARK_TOKENS, COOKIE_COLOR_THEME_NAME } from '@/constants';
 import VisuallyHidden from '@/components/VisuallyHidden';
 
 function DarkLightToggle({styles, initialTheme}) {
@@ -14,7 +13,7 @@ function DarkLightToggle({styles, initialTheme}) {
 
     setTheme(nextTheme);
 
-    Cookie.set('color-theme', nextTheme, { expires: 1000});
+    Cookie.set(COOKIE_COLOR_THEME_NAME, nextTheme, { expires: 1000});
 
     const COLORS = nextTheme === 'light' ? LIGHT_TOKENS : DARK_TOKENS;
 
